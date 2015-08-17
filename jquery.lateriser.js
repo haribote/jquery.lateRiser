@@ -173,14 +173,11 @@
   /**
    * LateRiser Pug-in
    */
-  $.fn.lateRiser = (function() {
-    // プラグインランナー
-    return function (options) {
-      this.not('[' + dataLazy + ']').each(function (i, el) {
-        return new LateRiser(el, options);
-      });
+  $.fn.lateRiser = function (options) {
+    this.not('[' + dataLazy + ']').each(function (i, el) {
+      return new LateRiser(el, options);
+    });
 
-      return this;
-    };
-  })();
+    return this;
+  };
 })(window, jQuery);
