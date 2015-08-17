@@ -1,0 +1,24 @@
+{
+  "name": "jquery.lateriser",
+  "version": "0.1.0",
+  "description": "A kind of 'Lazy Load' plug-in.",
+  "main": "jquery.lateriser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haribote/jquery.lateriser.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "lazy",
+    "load"
+  ],
+  "author": "KIMURA Tetsuro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haribote/jquery.lateriser/issues"
+  },
+  "homepage": "https://github.com/haribote/jquery.lateriser#readme"
+}
