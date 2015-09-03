@@ -168,7 +168,8 @@
     if (
       (
         (this.offsetTop > scrollY && this.offsetTop < windowBottom) ||
-        (this.offsetBottom > scrollY && this.offsetBottom < windowBottom)
+        (this.offsetBottom > scrollY && this.offsetBottom < windowBottom) ||
+        (scrollY > this.offsetTop && windowBottom < this.offsetBottom)
       ) &&
       !this.ready
     ) {
