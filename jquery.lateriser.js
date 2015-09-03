@@ -17,6 +17,7 @@
   var collection   = [];
   var dataLazy     = 'data-lazy';
   var windowHeight = 0;
+  var debounceTime = 100;
 
   /**
    * Styles
@@ -76,8 +77,35 @@
 
     // bind event handlers
     $window = $(window);
-    $window.on('scroll touchmove', null, LateRiser.onScroll);
-    $window.on('resize', null, LateRiser.onResize);
+    $window.on('scroll touchmove', null, LateRiser.debounce(LateRiser.onScroll, debounceTime));
+    $window.on('resize', null, LateRiser.debounce(LateRiser.onResize, debounceTime));
+  };
+
+  /**
+   * event reducer
+   * @static
+   * @param {Function} func
+   * @param {Number}   delay
+   */
+  LateRiser.debounce = function(func, delay) {
+    var context = null;
+    var args = [];
+    var timer = null;
+    var _func = function() {
+      func.apply(context, args);
+      context = null;
+      args = [];
+    };
+    return function() {
+      context = this;
+      args = arguments;
+      if (timer) {
+        window.clearTimeout(timer);
+      } else {
+        _func();
+      }
+      timer = window.setTimeout(_func, delay);
+    };
   };
 
   /**
